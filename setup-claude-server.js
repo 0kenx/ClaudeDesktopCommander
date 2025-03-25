@@ -11,7 +11,7 @@ const __dirname = dirname(__filename);
 const isWindows = platform() === 'win32';
 const claudeConfigPath = isWindows
     ? join(process.env.APPDATA, 'Claude', 'claude_desktop_config.json')
-    : join(homedir(), 'Library', 'Application Support', 'Claude', 'claude_desktop_config.json');
+    : join(homedir(), '.config', 'Claude', 'claude_desktop_config.json');
 
 // Setup logging
 const LOG_FILE = join(__dirname, 'setup.log');
