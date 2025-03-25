@@ -1,9 +1,12 @@
-import { Server } from "@modelcontextprotocol/sdk/server/index.js";
+// Static imports with module declaration for TypeScript
+// @ts-ignore - Importing from absolute paths
+import { Server } from '@modelcontextprotocol/sdk/server/index.js';
+// @ts-ignore - Importing from absolute paths
 import {
   CallToolRequestSchema,
   ListToolsRequestSchema,
   type CallToolRequest,
-} from "@modelcontextprotocol/sdk/types.js";
+} from '@modelcontextprotocol/sdk/types.js';
 import { zodToJsonSchema } from "zod-to-json-schema";
 import { commandManager } from './command-manager.js';
 import {
@@ -43,6 +46,7 @@ import { searchTextInFiles } from './tools/search.js';
 
 import { VERSION } from './version.js';
 
+// Create the server instance statically
 export const server = new Server(
   {
     name: "desktop-commander",
@@ -55,6 +59,7 @@ export const server = new Server(
   },
 );
 
+// Set up the request handlers directly
 server.setRequestHandler(ListToolsRequestSchema, async () => {
   return {
     tools: [
@@ -218,7 +223,7 @@ server.setRequestHandler(ListToolsRequestSchema, async () => {
   };
 });
 
-server.setRequestHandler(CallToolRequestSchema, async (request: CallToolRequest) => {
+  server.setRequestHandler(CallToolRequestSchema, async (request: CallToolRequest) => {
   try {
     const { name, arguments: args } = request.params;
 
@@ -389,4 +394,4 @@ server.setRequestHandler(CallToolRequestSchema, async (request: CallToolRequest)
       isError: true,
     };
   }
-});
+  });

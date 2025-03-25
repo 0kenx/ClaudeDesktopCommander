@@ -2,7 +2,9 @@ import { spawn } from 'child_process';
 import path from 'path';
 import fs from 'fs/promises';
 import { validatePath } from './filesystem.js';
-import { rgPath } from '@vscode/ripgrep';
+// Fix CommonJS import
+import ripgrep from '@vscode/ripgrep';
+const { rgPath } = ripgrep;
 
 // Type definition for search results
 export interface SearchResult {
