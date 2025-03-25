@@ -1,14 +1,10 @@
 #!/usr/bin/env node
 
-// Use static imports with module declaration for TypeScript
-import { join, dirname } from 'path';
-import { fileURLToPath } from 'url';
+import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
 import { server } from './server.js';
 import { commandManager } from './command-manager.js';
-
-// Define import types
-// @ts-ignore - Importing from absolute paths
-import { StdioServerTransport } from '@modelcontextprotocol/sdk/server/stdio.js';
+import { join, dirname } from 'path';
+import { fileURLToPath } from 'url';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -41,7 +37,6 @@ async function runServer() {
       process.exit(1);
     });
 
-    // Create the transport directly
     const transport = new StdioServerTransport();
     
     // Load blocked commands from config file

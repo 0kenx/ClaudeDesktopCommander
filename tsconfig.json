@@ -11,10 +11,7 @@
     "skipLibCheck": true,
     "diagnostics": true,
     "extendedDiagnostics": true,
-    "listEmittedFiles": true,
-    "allowSyntheticDefaultImports": true,
-    "resolveJsonModule": true,
-    "noImplicitAny": false
+    "listEmittedFiles": true
   },
   "include": [
     "src/**/*.ts"
